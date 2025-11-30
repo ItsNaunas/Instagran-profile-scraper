@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  ig-scraper:
+    build: .
+    container_name: ig-scraper
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
